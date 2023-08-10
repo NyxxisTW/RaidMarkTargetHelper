@@ -1,0 +1,171 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="RaidMarkTargetHelper.lua"/>
+
+	<Button name="RMTH_ButtonTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="24" y="24"/>
+		</Size>
+		<Scripts>
+			<OnClick>
+				RMTH_Button_OnClick(this)
+			</OnClick>
+		</Scripts>
+	</Button>
+
+	<Frame name="RMTH_MainFrame" toplevel="true" movable="true"
+		   parent="UIParent" enableMouse="true" hidden="true">
+		<TitleRegion setAllPoints="true"/>
+		<Size>
+			<AbsDimension x="64" y="24"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset><AbsDimension x="0" y="0"/></Offset>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="16"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="16"/>
+			</TileSize>
+			<Color a="0" r="0" g="0" b="0.5"/>
+			<BackgroundInsets>
+				<AbsInset left="5" right="5" top="5" bottom="5"/>
+			</BackgroundInsets>
+		</Backdrop>
+
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="RMTH_Title" inherits="GameFontNormal" text="RMTH">
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+
+				<FontString name="RMTH_CurrentMark" inherits="GameFontNormal" text="CM: ">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="6" y="-132"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		
+		<Frames>
+			<!-- RIGHT -->
+			<Button name="RMTH_Button1" inherits="RMTH_ButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset><AbsDimension x="32" y="-24"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="RMTH_Texture_Star" file="Interface\AddOns\RaidMarkTargetHelper\Icons\Star"/>
+					</Layer>
+				</Layers>
+			</Button>
+			<Button name="RMTH_Button2" inherits="RMTH_ButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset><AbsDimension x="32" y="-50"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="RMTH_Texture_Nipple" file="Interface\AddOns\RaidMarkTargetHelper\Icons\Nipple"/>
+					</Layer>
+				</Layers>
+			</Button>
+			<Button name="RMTH_Button3" inherits="RMTH_ButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset><AbsDimension x="32" y="-76"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="RMTH_Texture_Diamond" file="Interface\AddOns\RaidMarkTargetHelper\Icons\Diamond"/>
+					</Layer>
+				</Layers>
+			</Button>
+			<Button name="RMTH_Button4" inherits="RMTH_ButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset><AbsDimension x="32" y="-102"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="RMTH_Texture8" file="Interface\AddOns\RaidMarkTargetHelper\Icons\Triangle"/>
+					</Layer>
+				</Layers>
+			</Button>
+			<!-- LEFT -->
+			<Button name="RMTH_Button5" inherits="RMTH_ButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset><AbsDimension x="6" y="-24"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="RMTH_Texture_Moon" file="Interface\AddOns\RaidMarkTargetHelper\Icons\Moon"/>
+					</Layer>
+				</Layers>
+			</Button>
+			<Button name="RMTH_Button6" inherits="RMTH_ButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset><AbsDimension x="6" y="-50"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="RMTH_Texture_Square" file="Interface\AddOns\RaidMarkTargetHelper\Icons\Square"/>
+					</Layer>
+				</Layers>
+			</Button>
+			<Button name="RMTH_Button7" inherits="RMTH_ButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset><AbsDimension x="6" y="-76"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="RMTH_Texture_X" file="Interface\AddOns\RaidMarkTargetHelper\Icons\X"/>
+					</Layer>
+				</Layers>
+			</Button>
+			<Button name="RMTH_Button8" inherits="RMTH_ButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset><AbsDimension x="6" y="-102"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="RMTH_Texture_Skull" file="Interface\AddOns\RaidMarkTargetHelper\Icons\Skull"/>
+					</Layer>
+				</Layers>
+			</Button>
+		</Frames>
+
+		<Scripts>
+			<OnLoad>
+				RMTH_MainFrame_OnLoad()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+</Ui>

@@ -1,0 +1,4 @@
+## Interface: 11200
+## Title: RMTH
+## SavedVariables: RMTH_raid_mark, RMTH_visible
+RaidMarkTargetHelper.xml
